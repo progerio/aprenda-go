@@ -5,7 +5,11 @@ import "fmt"
 const prefixoOlaPortugues = "Olá, "
 
 func Ola(nome string) string {
-	return prefixoOlaPortugues + nome
+	if len(nome) > 0 {
+		return prefixoOlaPortugues + nome
+	}
+	return prefixoOlaPortugues + "mundo"
+
 }
 
 func main() {
