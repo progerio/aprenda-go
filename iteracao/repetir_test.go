@@ -10,3 +10,9 @@ func TestRepetir(t *testing.T) {
 		t.Errorf("esperado '%s' mas obteve '%s'", esperado, repeticoes)
 	}
 }
+
+func BenchmarkRepetir(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		Repetir("a")
+	}
+}
