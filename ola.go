@@ -15,19 +15,22 @@ func Ola(nome string, idioma string) string {
 		nome = "mundo"
 	}
 
-	prefixo := prefixoOlaPortugues
+	return prefixoDeSaudacao(idioma) + nome
+}
+
+// Criando valor de retorno prefixo string na função
+func prefixoDeSaudacao(idioma string) (prefixo string) {
 
 	switch idioma {
 	case frances:
 		prefixo = prefixoOlaFrances
 	case espanhol:
 		prefixo = prefixoOlaEspanhol
+	default:
+		prefixo = prefixoOlaPortugues
 	}
-
-	return prefixo + nome
-
+	return
 }
-
 func main() {
 	fmt.Println(Ola("mundo", "portugues"))
 }
