@@ -20,12 +20,24 @@ func TestSoma(t *testing.T) {
 
 }
 
-func TestSomaTudo(t *testing.T) {
-	recebido := SomaTudo([]int{1, 2}, []int{0, 9})
-	esperado := []int{3, 9}
+func TestSomaTodoOResto(t *testing.T) {
+	t.Run("faz as somas de alguns slices", func(t *testing.T) {
+		recebido := SomaTodoOResto([]int{1, 2}, []int{0, 9})
+		esperado := []int{2, 9}
 
-	if !reflect.DeepEqual(recebido, esperado) {
-		t.Errorf("resultado %v esperado %v", recebido, esperado)
-	}
+		if !reflect.DeepEqual(recebido, esperado) {
+			t.Errorf("resultado %v esperado %v", recebido, esperado)
+		}
+	})
+
+	t.Run("soma slices vazios de forma segura", func(t *testing.T) {
+		resultado := SomaTodoOResto([]int{}, []int{3, 4, 5})
+		esperado := []int{0, 9}
+
+		if !reflect.DeepEqual(resultado, esperado) {
+			t.Errorf("resultado %v esperado %v", resultado, esperado)
+		}
+
+	})
 
 }

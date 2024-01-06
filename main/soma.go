@@ -9,13 +9,17 @@ func Soma(numeros []int) int {
 	return soma
 }
 
-func SomaTudo(numerosParaSomar ...[]int) []int {
-	quantidadeDeNumeros := len(numerosParaSomar)
+func SomaTodoOResto(numerosParaSomar ...[]int) []int {
 	var somas []int
 
-	somas = make([]int, quantidadeDeNumeros)
 	for _, numeros := range numerosParaSomar {
-		somas = append(somas, Soma(numeros))
+
+		if len(numeros) == 0 {
+			somas = append(somas, 0)
+		} else {
+			final := numeros[1:]
+			somas = append(somas, Soma(final))
+		}
 	}
 
 	return somas
