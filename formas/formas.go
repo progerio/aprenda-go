@@ -1,9 +1,14 @@
 package formas
 
-func Perimetro(largura float64, altura float64) float64 {
-	return 2 * (largura + altura)
+type Retangulo struct {
+	Largura float64
+	Altura  float64
 }
 
-func Area(largura float64, altura float64) float64 {
-	return largura * altura
+func Perimetro(retangulo Retangulo) float64 {
+	return 2 * (retangulo.Largura + retangulo.Altura)
+}
+
+func Area(retangulo Retangulo) float64 {
+	return retangulo.Largura * retangulo.Altura
 }
