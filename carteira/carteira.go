@@ -5,6 +5,8 @@ import (
 	"fmt"
 )
 
+var ErroSaldoInsuficiente = errors.New("não é possível retirar: saldo insuficiente")
+
 type Bitcoin int
 
 func (b Bitcoin) String() string {
@@ -30,7 +32,7 @@ func (c *Carteira) Saldo() Bitcoin {
 
 func (c *Carteira) Retirar(quantidade Bitcoin) error {
 	if quantidade > c.saldo {
-		return errors.New("eita")
+		return ErroSaldoInsuficiente
 	}
 	c.saldo -= quantidade
 	return nil
