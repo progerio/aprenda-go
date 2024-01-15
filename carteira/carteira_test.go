@@ -24,6 +24,7 @@ func TestCarteira(t *testing.T) {
 			t.Errorf("resultado %s, esperado %s", erro, valorEsperado)
 		}
 	}
+
 	t.Run("Depositar", func(t *testing.T) {
 		carteira := Carteira{}
 		carteira.Depositar(Bitcoin(10))
