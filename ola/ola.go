@@ -1,13 +1,9 @@
 package ola
 
-import "fmt"
+const prefixoOlaPortugues = "Olá, "
 
-func Ola(nome, linguagem string) string {
-	return fmt.Sprintf(
-		"%s, %s",
-		cumprimento(linguagem),
-		nome,
-	)
+func Ola(nome string) string {
+	return prefixoOlaPortugues + nome
 }
 
 var comprimentos = map[string]string{

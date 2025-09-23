@@ -3,10 +3,21 @@ package ola
 import "testing"
 
 func TestOla(t *testing.T) {
-	obtido := Ola("Chris", "br")
-	esperado := "Olá, Chris"
+	t.Run("diz ola para as pessoas", func(t *testing.T) {
+		resultado := Ola("Chris")
+		esperado := "Olá, Chris"
 
-	if obtido != esperado {
-		t.Errorf("obtido '%s' esperado '%s'", obtido, esperado)
-	}
+		if resultado != esperado {
+			t.Errorf("resultado '%s', esperado '%s'", resultado, esperado)
+		}
+	})
+
+	t.Run("diz Olá mundo quando uma string vazia for passada", func(t *testing.T) {
+		resultado := Ola("")
+		esperado := "Olá, mundo"
+
+		if resultado != esperado {
+			t.Errorf("resultado %s, esperado %s", resultado, esperado)
+		}
+	})
 }
