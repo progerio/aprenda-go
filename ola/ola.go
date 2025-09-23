@@ -1,24 +1,25 @@
 package ola
 
+const espanhol = "espanhol"
+const frances = "frances"
 const prefixoOlaPortugues = "Olá, "
+const prefixoOlaEspanhol = "Hola, "
+const prefixoOlaFrances = "Bonjour, "
 
-func Ola(nome string) string {
+func Ola(nome string, idioma string) string {
 	if nome == "" {
 		nome = "Mundo"
 	}
-	return prefixoOlaPortugues + nome
+	return prefixodeSaudacao(idioma) + nome
 }
-
-var comprimentos = map[string]string{
-	"br": "Olá",
-	"fr": "Bonjour",
-}
-
-func cumprimento(linguagem string) string {
-	comprimento, existe := comprimentos[linguagem]
-
-	if existe {
-		return comprimento
+func prefixodeSaudacao(idioma string) (prefixo string) {
+	switch idioma {
+	case frances:
+		prefixo = prefixoOlaFrances
+	case espanhol:
+		prefixo = prefixoOlaEspanhol
+	default:
+		prefixo = prefixoOlaPortugues
 	}
-	return "Hello, "
+	return
 }
