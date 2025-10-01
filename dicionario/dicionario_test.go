@@ -68,3 +68,14 @@ func TestUpdate(t *testing.T) {
 	dicionario.Atualiza(palavra, novaDefinicao)
 	comparaDefinicao(t, dicionario, palavra, novaDefinicao)
 }
+
+func TestDeleta(t *testing.T) {
+	palavra := "teste"
+	definicao := "isso é apenas um teste"
+	dicionario := Dicionario{palavra: definicao}
+	dicionario.Deleta(palavra)
+	_, err := dicionario.Busca(palavra)
+	if err != ErrNaoEncontrado {
+		t.Errorf("espera-se que '%s' seja deletado", palavra)
+	}
+}
