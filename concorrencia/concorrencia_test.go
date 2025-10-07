@@ -36,7 +36,8 @@ func slowStubVerifiadorWebsite(_ string) bool {
 
 func BenchmarkVerificadorWebsites(b *testing.B) {
 	urls := make([]string, 100)
-	for i := 0; i < 100; i++ {
+
+	for i := range 100 {
 		urls[i] = "http://www.google.com"
 	}
 
