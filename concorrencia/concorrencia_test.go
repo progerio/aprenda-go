@@ -7,10 +7,7 @@ import (
 )
 
 func mockVerificadorWebSite(url string) bool {
-	if url == "waat://furhurterwe.geds" {
-		return false
-	}
-	return true
+	return url != "waat://furhurterwe.geds"
 }
 
 func TestVerificadorWebsites(t *testing.T) {

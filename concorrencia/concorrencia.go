@@ -16,7 +16,7 @@ func VerificadorWebSites(vw VerificadorWebSite, urls []string) map[string]bool {
 		}(url)
 	}
 
-	for i := 0; i < len(urls); i++ {
+	for range urls {
 		resultado := <-canalResultado
 		resultados[resultado.string] = resultado.bool
 	}
