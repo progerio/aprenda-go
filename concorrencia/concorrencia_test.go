@@ -41,7 +41,7 @@ func BenchmarkVerificadorWebsites(b *testing.B) {
 		urls[i] = "http://www.google.com"
 	}
 
-	for i := 0; i < b.N; i++ {
+	for b.Loop() {
 		VerificadorWebSites(slowStubVerifiadorWebsite, urls)
 	}
 }
