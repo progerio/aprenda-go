@@ -15,5 +15,4 @@ func TestCumprimenta(t *testing.T) {
 	if resultado != esperado {
 		t.Errorf("resultado '%s', esperado '%s'", resultado, esperado)
 	}
-
 }
