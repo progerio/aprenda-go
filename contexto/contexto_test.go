@@ -59,9 +59,12 @@ func TestHandler(t *testing.T) {
 	t.Run("retorna dados da store", func(t *testing.T) {
 		store := &SpyStore{response: data, t: t}
 		svr := Server(store)
+
 		request := httptest.NewRequest(http.MethodGet, "/", nil)
 		response := httptest.NewRecorder()
+
 		svr.ServeHTTP(response, request)
+
 		if response.Body.String() != data {
 			t.Errorf(`resultado "%s", esperado "%s"`, response.Body.String(), data)
 		}
@@ -76,6 +79,7 @@ func TestHandler(t *testing.T) {
 
 		request = request.WithContext(cancellingCtx)
 		response := &SpyResponseWriter{}
+
 		svr.ServeHTTP(response, request)
 
 		if response.written {
