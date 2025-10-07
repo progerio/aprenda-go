@@ -22,7 +22,7 @@ func TestContador(t *testing.T) {
 		var wg sync.WaitGroup
 		wg.Add(contagemEsperada)
 
-		for i := 0; i < contagemEsperada; i++ {
+		for range contagemEsperada {
 			go func(w *sync.WaitGroup) {
 				contador.Incrementar()
 				w.Done()

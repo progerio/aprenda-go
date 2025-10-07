@@ -124,7 +124,7 @@ func verificaSeContem(t *testing.T, palheiro []string, agulha string) {
 	}
 }
 
-func percorre(x interface{}, fn func(entrada string)) {
+func percorre(x any, fn func(entrada string)) {
 	valor := obtemValor(x)
 	percorreValor := func(valor reflect.Value) {
 		percorre(valor.Interface(), fn)
@@ -146,7 +146,7 @@ func percorre(x interface{}, fn func(entrada string)) {
 		}
 	}
 }
-func obtemValor(x interface{}) reflect.Value {
+func obtemValor(x any) reflect.Value {
 	valor := reflect.ValueOf(x)
 	if valor.Kind() == reflect.Ptr {
 		valor = valor.Elem()
